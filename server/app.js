@@ -4,6 +4,7 @@ import cors from 'cors';
 
 import notFound from './src/middleware/notFound.js';
 import errorHandler from './src/middleware/errorHandler.js';
+import routes from './src/routes/index.js';
 
 const app = express();
 
@@ -28,6 +29,7 @@ app.get('/api/v1/health', (req, res) => {
 });
 
 // 4. Your API routes will go here later
+app.use('/api/v1', routes);
 
 // 5. Handle unknown routes
 app.use(notFound);
