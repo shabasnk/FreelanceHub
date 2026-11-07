@@ -47,9 +47,15 @@ Dependencies
 [ ] Centralized API route registration.
 [ ] Centralized error handling fully verified.
 [ ] Request validation middleware.
-[ ] Authentication middleware.
-[ ] Role authorization middleware.
+[x] Authentication middleware.
+[x] Role authorization middleware.
 [ ] API health check verification.
+Authentication Middleware
+[x] Create `authenticate.js` middleware.
+[x] Test authentication with a valid JWT.
+[x] `authorizeRole.js` created.
+[x] Test rejection of unauthorized roles (403).
+[x] Test successful client role authorization (200).
 4. Authentication Module
 Location: `server/src/modules/auth/`
 [x] `auth.validation.js`
@@ -184,10 +190,16 @@ JWT Token Utility
 Authentication Controller and Routes
 Registration Endpoint Test
 Login Endpoint Test
+Authentication Middleware
+Protected Route Test with Valid Token
+Missing Token Test
+`authorizeRole.js`
+Unauthorized Role Rejection Test (403)
+Client Role Authorization Test (200)
 Current task:
-Test invalid credentials.
-Next tasks:
 Create `auth.constants.js`.
+Next tasks:
+Test invalid credentials.
 Test JWT token generation and verification.
 Test duplicate email registration.
 Progress Update Log

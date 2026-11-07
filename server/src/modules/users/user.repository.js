@@ -1,4 +1,3 @@
-
 import User from './user.model.js';
 
 const createUser = async (userData) => {
@@ -13,6 +12,17 @@ const findByEmail = async (email) => {
 
 const findById = async (userId) => {
   return await User.findById(userId);
+};
+
+const updateById = async (userId, updateData) => {
+  return await User.findByIdAndUpdate(
+    userId,
+    { $set: updateData },
+    {
+      new: true,
+      runValidators: true,
+    },
+  );
 };
 
 const findByIdWithPassword = async (userId) => {
@@ -31,7 +41,7 @@ const updateLastLogin = async (userId) => {
   return await User.findByIdAndUpdate(
     userId,
     { lastLoginAt: new Date() },
-    { new: true }
+    { new: true },
   );
 };
 
@@ -42,6 +52,7 @@ const userRepository = {
   findByIdWithPassword,
   emailExists,
   updateLastLogin,
+  updateById,
 };
 
 export default userRepository;
